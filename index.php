@@ -1,9 +1,20 @@
 <?php
 function isArmstrongNumber(int $number): bool {
-    return false
+    echo getNumberofFigures($number).PHP_EOL;
+    return false;
 }
 
-$number = readline("Give me a number! :)")
+function getNumberofFigures(int $number): int {
+    $number_of_figures = 0;
+    while(intdiv($number, 10) > 0) {
+        ++$number_of_figures;
+        $number = intdiv($number,10);
+    }
+    return $number_of_figures+1;
+}
+
+
+$number = readline("Give me a number! :)");
 //TODO: Input validation. Ensure its a valid number
 if(isArmstrongNumber($number)) {
     echo $number." is an Armstrong number!";
